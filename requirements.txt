@@ -1,0 +1,26 @@
+# Core
+numpy>=1.24
+matplotlib>=3.7
+seaborn>=0.12
+jupyter>=1.0
+ipywidgets>=8.0
+
+# JAX (CPU default; install jaxlib[cuda] for GPU)
+jax>=0.4.20
+jaxlib>=0.4.20
+
+# Active Inference framework (standalone JAX-native library)
+# pip install alf-aif
+# Or install from source: cd /path/to/alf && pip install -e .
+
+# neuro-nav RL environments and agents (Modules 1-7, 13)
+# pip install neuronav
+# Or install from source: cd /path/to/neuro-nav && pip install -e .
+
+# PGMax (Modules 9, 13, 15 — BP-based AIF)
+# pip install pgmax
+# Or install from source: cd /path/to/PGMax && pip install -e .
+
+# Concordia (Module 16 capstone only)
+# pip install concordia
+# Or install from source: cd /path/to/concordia && pip install -e .

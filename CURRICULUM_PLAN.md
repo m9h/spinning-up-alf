@@ -2,7 +2,7 @@
 
 ## Context
 
-This comprehensive educational resource — "Spinning Up in Active Inference" — is modeled on OpenAI's *Spinning Up in RL* and designed as a pre-course introduction to Neuromatch Academy's computational neuroscience curriculum. It takes students from animal behavior foundations through classical RL, into Active Inference and the Free Energy Principle, using our codebase across ALF, neuro-nav, and Concordia/SustainHub as the hands-on backbone.
+This comprehensive educational resource — "Spinning Up in Active Inference" — is modeled on OpenAI's *Spinning Up in RL* and designed as a pre-course introduction to Neuromatch Academy's computational neuroscience curriculum. It takes students from animal behavior foundations through classical RL, into Active Inference and the Free Energy Principle, using our codebase across ALF, neuro-nav, and Concordia as the hands-on backbone.
 
 This curriculum fills a gap: no existing resource teaches RL and AIF side-by-side with shared environments and escalating complexity, grounded in the history of behavioral science that motivated both frameworks.
 

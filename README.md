@@ -17,12 +17,36 @@ This curriculum traces that intellectual lineage from animal behavior experiment
 
 > Modeled on OpenAI's [Spinning Up in RL](https://spinningup.openai.com/), and designed as a pre-course introduction to [Neuromatch Academy](https://neuromatch.io/)'s computational neuroscience curriculum.
 
+## How this fits with other resources
+
+There are excellent RL courses already. This one exists because none of them do what we do.
+
+| | [Spinning Up (OpenAI)](https://spinningup.openai.com/) | [Deep RL Course (HuggingFace)](https://huggingface.co/learn/deep-rl-course/) | [Neuromatch Academy](https://compneuro.neuromatch.io/) | **This curriculum** |
+|---|---|---|---|---|
+| **RL algorithms** | VPG, TRPO, PPO, DDPG, TD3, SAC | Q-learning, DQN, PPO, A2C | Multi-armed bandits, Q-learning, model-based (1 day) | Q-learning, SARSA, Dyna, REINFORCE, A2C, DQN, PPO, SAC |
+| **Active Inference** | -- | -- | -- | Full AIF track: POMDP generative models, EFE, deep AIF, hierarchical |
+| **Free Energy Principle** | -- | -- | -- | VFE, ELBO decomposition, surprise minimization, FEP as unifying principle |
+| **RL-AIF bridge** | -- | -- | -- | Formal Rosetta Stone: Q = -G, softmax equivalence, same-environment proof |
+| **Neuroscience grounding** | -- | -- | Bayesian decisions, HMMs, Kalman filters | Thorndike, Pavlov, Tolman, Schultz (dopamine = TD error), successor representations |
+| **Animal behavior history** | -- | -- | Implicit | Explicit: ethology, reinforcement schedules, cognitive maps, Tinbergen's 4 questions |
+| **Bayesian brain** | -- | -- | W3D1-D2 (inference, HMMs) | Helmholtz, variational inference, generative models, belief propagation |
+| **Differentiable inference** | -- | -- | -- | jax.grad through the forward algorithm, learning A/B matrices from data |
+| **GPU-accelerated AIF** | -- | -- | -- | JAX jit/vmap/grad, 1000 batch agents on GPU |
+| **Multi-agent / social** | -- | Unit 7 (broken) | -- | Ostrom's commons, Concordia social simulation, experiment ladder L0-L7 |
+| **Primary language** | Python/TF | Python/PyTorch | Python/NumPy | Python/JAX |
+| **Environments** | MuJoCo | Atari, Unity, VizDoom, Godot | Custom tutorials | neuro-nav grid worlds (neuroscience-native) |
+
+**The gap we fill:** No existing resource teaches RL and Active Inference side-by-side, in the same environments, with escalating complexity, grounded in the animal behavior research that motivated both frameworks. Spinning Up teaches RL but not AIF. HuggingFace teaches practical deep RL but no theory of mind. Neuromatch covers Bayesian inference and one day of RL, but never mentions the Free Energy Principle. We bridge all three.
+
+**How we complement Neuromatch:** Neuromatch W3D1 (Bayesian Decisions) and W3D4 (Reinforcement Learning) are the two days most relevant to our curriculum. Students who complete our Modules 1-8 before Neuromatch will arrive with deep intuition for why Bayesian inference and RL are connected — making W3 substantially more meaningful. Our Module 13 (Rosetta Stone) then formalizes what Neuromatch leaves implicit.
+
 ## Who is this for?
 
 - Graduate students in computational neuroscience, cognitive science, or AI
 - RL practitioners curious about Active Inference
 - Neuroscientists who want to understand computational models of behavior
 - Anyone who finds the Free Energy Principle intriguing but impenetrable
+- Students preparing for Neuromatch Academy who want deeper RL/Bayesian foundations
 
 **Prerequisites:** Python, NumPy, basic probability (Bayes' rule). No prior RL or AIF experience required.
 
@@ -79,7 +103,7 @@ Multi-level models and multi-agent social intelligence.
 | | Module | What you'll learn | Application |
 |---|---|---|---|
 | [15](notebooks/15_hierarchical_aif.ipynb) | **Hierarchical AIF** | Context-dependent perception, temporal abstraction, cross-level info gain. | Context-dependent T-maze |
-| [16](notebooks/16_multiagent_commons.ipynb) | **Multi-Agent Commons** | Ostrom's design principles, FEP meets social simulation, experiment ladder L0-L7. | SustainHub open-source commons |
+| [16](notebooks/16_multiagent_commons.ipynb) | **Multi-Agent Commons** | Ostrom's design principles, FEP meets social simulation, experiment ladder L0-L7. | Concordia social simulation |
 
 ---
 
@@ -171,7 +195,7 @@ This curriculum builds on:
 
 - **[ALF](https://github.com/m9h/alf)** — Active inference/Learning Framework: JAX-native, differentiable, GPU-accelerated
 - **[neuro-nav](https://github.com/awjuliani/neuro-nav)** — Neuroscience-inspired RL environments and agents
-- **[Concordia](https://github.com/m9h/concordia)** — Multi-agent social simulation (SustainHub)
+- **[Concordia](https://github.com/m9h/concordia)** — Multi-agent social simulation
 
 ## License
 

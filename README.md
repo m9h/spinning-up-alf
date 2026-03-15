@@ -187,8 +187,44 @@ This curriculum is designed to work alongside — not replace — other excellen
 | [INRIA scikit-learn MOOC](https://inria.github.io/scikit-learn-mooc/) | Classical ML pipelines, model selection, evaluation | Before or alongside — builds general ML fluency |
 | [HuggingFace Deep RL Course](https://huggingface.co/learn/deep-rl-course/) | Practical deep RL training (Atari, Unity, VizDoom) | After our Part 2 — you'll understand *why* the algorithms work |
 | [OpenAI Spinning Up](https://spinningup.openai.com/) | Reference implementations of PPO, SAC, TD3 | As a reference during our Modules 6-7 |
-| [Neuromatch Academy](https://compneuro.neuromatch.io/) | Full computational neuroscience (3 weeks, live) | After our Modules 1-8 — you'll arrive with deep RL/Bayesian intuition for W3 |
+| [Neuromatch Comp Neuro](https://compneuro.neuromatch.io/) | Full computational neuroscience (3 weeks, live) | After our Modules 1-8 — deep RL/Bayesian intuition for their W3 |
+| [Neuromatch Deep Learning](https://deeplearning.neuromatch.io/) | PyTorch, CNNs, VAEs, diffusion, transformers, RL | Before or alongside — their W2D4 (VAEs) connects to our Module 8, their W3D4-D5 (RL) to our Parts 1-2 |
+| [Neuromatch NeuroAI](https://neuroai.neuromatch.io/) | Comparing biological and artificial networks, representations | After our full curriculum — our Rosetta Stone (Module 13) is NeuroAI applied to decision-making |
 | [Lovelace](https://computationalcognitivescience.github.io/lovelace/) | Computational cognitive science, probabilistic models of cognition | Alongside our Part 3 — same Bayesian brain ideas, different formalism |
+
+### Detailed correspondences with Neuromatch
+
+Our curriculum was designed as preparation for Neuromatch Academy. Here is where the specific modules align:
+
+| Our module | Neuromatch Comp Neuro | Neuromatch Deep Learning | Neuromatch NeuroAI |
+|---|---|---|---|
+| 01-03 (Animal behavior, Bellman, TD) | **W3D4** RL (bandits, Q-learning, model-based) | W3D4-D5 (RL fundamentals, RL for games) | W1D2 (contrastive and RL for generalization) |
+| 04 (Exploration) | W3D1 (Bayesian decisions) | -- | -- |
+| 05 (Model-based RL) | W3D3 (Optimal control) | -- | W2D1 (macrocircuits, modularity) |
+| 06-07 (Policy gradients, Deep RL) | -- | W3D4-D5 (RL, MCTS) | -- |
+| 08 (Generative models, FEP) | W3D1-D2 (Bayesian inference, HMMs, Kalman) | **W2D4** (VAEs, diffusion models) | -- |
+| 09-10 (AIF agent, EFE) | -- | -- | -- |
+| 11 (Learning generative models) | W3D2 (EM algorithm) | W2D4 (VAEs) | W2D3 (microlearning) |
+| 13 (Rosetta Stone) | -- | -- | **W1D3** (comparing artificial and biological networks) |
+| 14 (JAX scaling) | -- | -- | -- |
+| 15-16 (Hierarchical, multi-agent) | -- | -- | W2D1-D2 (macrocircuits, neurosymbolic) |
+
+The cells marked **bold** are the strongest correspondences. Our Modules 9-12 (the core AIF track) have no Neuromatch equivalent — that is the gap we fill.
+
+### Multi-agent ecosystems: from Gym to social simulation
+
+Module 16 connects to a broader ecosystem of multi-agent tools. Here is the landscape:
+
+| Tool | What it does | Relation to our curriculum |
+|---|---|---|
+| [Gymnasium](https://gymnasium.farama.org/) (Farama Foundation) | Successor to OpenAI Gym. The standard single-agent RL API. | Our Modules 1-7 use [neuro-nav](https://github.com/awjuliani/neuro-nav) which wraps Gym. Future: migrate to Gymnasium. |
+| [PettingZoo](https://github.com/Farama-Foundation/PettingZoo) | Gymnasium for multi-agent RL. Standard MARL API. | Natural API for Module 16's multi-agent experiments. |
+| [JaxMARL](https://github.com/FLAIROx/JaxMARL) | GPU-accelerated MARL environments and algorithms in JAX. 12,500x speedup via vmap. | Direct complement to our Module 14 (JAX scaling). Run 1000s of multi-agent episodes in parallel. |
+| [SocialJax](https://arxiv.org/abs/2503.14576) | JAX suite for sequential social dilemmas: Commons Harvest, Clean Up, Territory. | The JAX-native version of our Module 16 scenarios. 50x faster than Melting Pot. ICLR 2026. |
+| [Melting Pot](https://github.com/google-deepmind/meltingpot) (DeepMind) | 50+ multi-agent substrates testing cooperation, competition, commons tragedies. | The benchmark our Module 16 (Ostrom's commons) prepares students to understand. |
+| [Concordia](https://github.com/google-deepmind/concordia) (DeepMind) | LLM-powered generative agent social simulation. | Our Module 16 builds on this directly — AIF agents in Concordia's SustainHub game. |
+
+**The progression:** Gymnasium (single agent) -> PettingZoo (multi-agent API) -> JaxMARL/SocialJax (GPU-accelerated MARL with social dilemmas) -> Melting Pot (rich evaluation) -> Concordia (LLM + AIF social simulation). Our curriculum teaches the theory (Modules 1-15) that makes these tools meaningful, and Module 16 lands in the Concordia layer where AIF meets LLM-powered social agents.
 
 ### Where to go next: Embodied intelligence
 

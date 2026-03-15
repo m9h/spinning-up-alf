@@ -33,8 +33,11 @@ There are excellent RL courses already. This one exists because none of them do 
 | **Differentiable inference** | -- | -- | -- | jax.grad through the forward algorithm, learning A/B matrices from data |
 | **GPU-accelerated AIF** | -- | -- | -- | JAX jit/vmap/grad, 1000 batch agents on GPU |
 | **Multi-agent / social** | -- | Unit 7 (broken) | -- | Ostrom's commons, Concordia social simulation, experiment ladder L0-L7 |
+| **Embodied robotics** | -- | -- | -- | PyBullet arm, continuous AIF, proprioceptive inference (Module 17) |
 | **Primary language** | Python/TF | Python/PyTorch | Python/NumPy | Python/JAX |
-| **Environments** | MuJoCo | Atari, Unity, VizDoom, Godot | Custom tutorials | neuro-nav grid worlds (neuroscience-native) |
+| **Environments** | MuJoCo | Atari, Unity, VizDoom, Godot | Custom tutorials | neuro-nav grid worlds, PyBullet (neuroscience-native) |
+
+See also: [HuggingFace Robotics Course](https://huggingface.co/learn/robotics-course/) (LeRobot, classical robotics + imitation learning + foundation models) — complementary to our Module 17.
 
 **The gap we fill:** No existing resource teaches RL and Active Inference side-by-side, in the same environments, with escalating complexity, grounded in the animal behavior research that motivated both frameworks. Spinning Up teaches RL but not AIF. HuggingFace teaches practical deep RL but no theory of mind. Neuromatch covers Bayesian inference and one day of RL, but never mentions the Free Energy Principle. We bridge all three.
 
@@ -275,9 +278,15 @@ Central banks and governments also publish open-source models, though these are 
 
 **Why this matters for our curriculum:** The GABM wave — LLM agents replacing hand-coded behavioral rules — is exactly what Concordia enables. Our Module 16 shows how Active Inference provides principled decision-making (EFE decomposition into productivity vs. community learning) where pure RL agents would need ad-hoc reward shaping. The experiment ladder (L0 pure RL -> L7 LLM+AIF) demonstrates this progression. The Bank of Italy's [BeforeIT.jl](https://github.com/bancaditalia/BeforeIT.jl) shows that ABMs are being taken seriously by institutions — the question is whether AIF-grounded agents can do better than rule-based ones in these policy-relevant settings.
 
-### Where to go next: From PyBullet to biologically realistic bodies
+### Embodied robotics: Module 17 and beyond
 
-Module 17 uses PyBullet for accessibility, but the frontier is **JAX-native physics**:
+Module 17 introduces embodied AIF with PyBullet. Here is how it connects to the broader robotics learning ecosystem:
+
+**[HuggingFace Robotics Course](https://huggingface.co/learn/robotics-course/)** — Free, self-paced course built on [LeRobot](https://github.com/huggingface/lerobot) (PyTorch). Covers classical robotics (FK/IK, Jacobians, feedback control), RL, imitation learning, and foundation models for robotics. Where our Module 17 teaches embodied AIF on a 2-link arm, the HF course teaches the same classical robotics foundations (their Unit 2) plus modern learning-based approaches. The two are complementary: our Module 17 shows *why* an AIF controller is robust to perturbation; their course shows how to scale to real hardware with LeRobot datasets and foundation models.
+
+**[Hugging Science](https://huggingface.co/hugging-science)** — Open community for AI-enabled scientific discovery across physics, biology, chemistry, and neuroscience. Active [Discord](https://huggingface.co/discord-community) with paper discussions and collaborative projects. A natural home for curriculum discussions and community contributions.
+
+The frontier is **JAX-native physics** — keeping simulation, inference, and learning on the GPU:
 
 **[MuJoCo XLA (MJX)](https://mujoco.readthedocs.io/en/stable/mjx.html)** — Google's JAX port of MuJoCo. Physics and neural networks in the same framework = no CPU-GPU transfer. `vmap` over hundreds of bodies simultaneously, millions of sim steps per second. The natural extension of our Module 14 (JAX scaling) to embodied agents.
 

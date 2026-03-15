@@ -190,6 +190,16 @@ This curriculum is designed to work alongside — not replace — other excellen
 | [Neuromatch Academy](https://compneuro.neuromatch.io/) | Full computational neuroscience (3 weeks, live) | After our Modules 1-8 — you'll arrive with deep RL/Bayesian intuition for W3 |
 | [Lovelace](https://computationalcognitivescience.github.io/lovelace/) | Computational cognitive science, probabilistic models of cognition | Alongside our Part 3 — same Bayesian brain ideas, different formalism |
 
+### Where to go next: Embodied intelligence
+
+Our curriculum ends at Module 16 with multi-agent social simulation — but the natural next step is **embodiment**: giving your Active Inference agents bodies in physically realistic worlds.
+
+**[Ludobots](https://github.com/jbongard/pyrosim)** (Josh Bongard, UVM) — The world's only MOOC taught from [reddit](https://www.reddit.com/r/ludobots/). Students evolve neural-network-controlled robots with arbitrary body plans in [pyrosim](https://github.com/mec-lab/pyrosim)/[pybullet](https://pybullet.org/). The progression — hill climber, neural networks, evolved morphologies — is the embodied cognition counterpart to our disembodied grid-world agents. Bongard's research on [xenobots](https://www.pnas.org/doi/10.1073/pnas.1910837117) (living robots designed by evolutionary algorithms) is where this line of work leads. Our Module 1 (animal behavior) and his evolutionary robotics share the same deep question: what is the relationship between an agent's body, its nervous system, and its behavior?
+
+**[HBP Neurorobotics Platform](https://neurorobotics.net/)** (EU Human Brain Project / EBRAINS) — Connects spiking neural network simulators ([NEST](https://www.nest-simulator.org/)) to robot physics ([Gazebo](https://gazebosim.org/)) via a Closed-Loop Engine. Transfer Functions bridge brain simulation output to robot actuators and sensor data back to neural input. The NRP's [EPFL Neurorobotics MOOC](https://github.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics) teaches SARSA and self-organizing maps on embodied robots. Where our curriculum uses discrete POMDPs and tabular/JAX inference, the NRP uses continuous spiking networks and physics — but the question is the same: how does an agent's model of the world drive its actions?
+
+**The connection:** Active Inference was always a theory of *embodied* intelligence — Friston's original formulations describe organisms minimizing free energy through both perception and action on a physical world. Our Modules 8-15 teach the math; Ludobots and the NRP provide the bodies. A future Module 17 could bridge the gap: an Active Inference agent controlling an evolved morphology in pybullet, closing the loop from Thorndike's cats to simulated creatures that learn, plan, and adapt.
+
 ## Key References
 
 - Sutton & Barto (2018). *Reinforcement Learning: An Introduction* — The RL bible

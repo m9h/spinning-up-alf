@@ -226,6 +226,32 @@ Module 16 connects to a broader ecosystem of multi-agent tools. Here is the land
 
 **The progression:** Gymnasium (single agent) -> PettingZoo (multi-agent API) -> JaxMARL/SocialJax (GPU-accelerated MARL with social dilemmas) -> Melting Pot (rich evaluation) -> Concordia (LLM + AIF social simulation). Our curriculum teaches the theory (Modules 1-15) that makes these tools meaningful, and Module 16 lands in the Concordia layer where AIF meets LLM-powered social agents.
 
+### Social policy simulation: from economics to commons governance
+
+Module 16's multi-agent commons simulation connects to a deep tradition in computational economics. The [AI Economist](https://github.com/salesforce/ai-economist) (Salesforce/Harvard, [Science Advances 2022](https://www.science.org/doi/10.1126/sciadv.abk2607)) pioneered **two-level (bi-level) deep MARL** for policy design: inner-level agents optimize their own utility while an outer-level social planner learns optimal tax policy. This Stackelberg structure — where the planner accounts for agents adapting to policy — is exactly the tension Ostrom studied in real commons, and what our Module 16 explores with AIF agents in Concordia's SustainHub and Collective Innovation games.
+
+Agent-based computational economics (ACE) has modeled these dynamics since the 1990s. What's new is coupling ABMs with deep RL and LLMs:
+
+| Framework | What it does | Relevance to Module 16 |
+|---|---|---|
+| [AI Economist](https://github.com/salesforce/ai-economist) | Two-level deep RL for tax policy design (Gym-style) | The bi-level RL template: agents + planner, both learning |
+| [BeforeIT.jl](https://github.com/bancaditalia/BeforeIT.jl) | **Bank of Italy** ABM for macro forecasting. First ABM matching DSGE accuracy. Parametrized with real data (Austria, Italy). | Real-data-grounded ABM — shows institutional adoption |
+| [Mesa](https://github.com/mesa/mesa) | Python ABM framework (500+ papers, Mesa 4 in development) | General-purpose ABM; Concordia's social layer is richer |
+| [ABCE](https://github.com/AB-CE/abce) | ABM for economics (trade, production, consumption) | Classical ACE toolkit |
+| [EconAgent](https://aclanthology.org/2024.acl-long.829/) | LLM-powered agents for macroeconomic simulation (ACL 2024) | Same GABM paradigm as Concordia, applied to macro |
+| [ABIDES-Economist](https://arxiv.org/html/2402.09563v1) | RL agents in economic simulation via Gym interface | Bridges RL and econ simulation |
+
+Central banks and governments also publish open-source models, though these are typically DSGE (equation-based) rather than agent-based:
+
+| Model | Institution | Notes |
+|---|---|---|
+| [DSGE.jl](https://github.com/FRBNY-DSGE/DSGE.jl) | **New York Fed** | Julia. Now extending to heterogeneous-agent (HANK) models |
+| [FRB/US](https://www.federalreserve.gov/econres/us-models-about.htm) | **Federal Reserve Board** | The Fed's main policy model |
+| [OpenSourcedMacroModels](https://github.com/dkgaraujo/OpenSourcedMacroModels) | Collection | 20+ central bank models (Bank of Finland, French MOF, etc.) |
+| [ABCredit.jl](https://github.com/bancaditalia/ABCredit.jl) | **Bank of Italy** | Credit/macro ABM |
+
+**Why this matters for our curriculum:** The GABM wave — LLM agents replacing hand-coded behavioral rules — is exactly what Concordia enables. Our Module 16 shows how Active Inference provides principled decision-making (EFE decomposition into productivity vs. community learning) where pure RL agents would need ad-hoc reward shaping. The experiment ladder (L0 pure RL -> L7 LLM+AIF) demonstrates this progression. The Bank of Italy's [BeforeIT.jl](https://github.com/bancaditalia/BeforeIT.jl) shows that ABMs are being taken seriously by institutions — the question is whether AIF-grounded agents can do better than rule-based ones in these policy-relevant settings.
+
 ### Where to go next: Embodied intelligence
 
 Our curriculum ends at Module 16 with multi-agent social simulation — but the natural next step is **embodiment**: giving your Active Inference agents bodies in physically realistic worlds.

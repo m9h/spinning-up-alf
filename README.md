@@ -3,10 +3,10 @@
 **From Thorndike's cats to the Free Energy Principle — a hands-on curriculum bridging Reinforcement Learning and Active Inference**
 
 <p align="center">
-  <img src="https://img.shields.io/badge/modules-16-blue" alt="16 modules"/>
+  <img src="https://img.shields.io/badge/modules-17-blue" alt="17 modules"/>
   <img src="https://img.shields.io/badge/JAX-GPU_accelerated-green" alt="JAX GPU"/>
   <img src="https://img.shields.io/badge/license-Apache_2.0-orange" alt="License"/>
-  <img src="https://img.shields.io/badge/tests-16%2F16_passing-brightgreen" alt="Tests passing"/>
+  <img src="https://img.shields.io/badge/tests-17%2F17_passing-brightgreen" alt="Tests passing"/>
 </p>
 
 ---
@@ -96,14 +96,15 @@ The two frameworks converge. Under the right conditions, they produce identical 
 | [13](notebooks/13_rosetta_stone.ipynb) | **The Rosetta Stone** | Formal RL-AIF correspondences. Same environment, two agents, same policy. | Q(s,a) = -G(a) when A=I |
 | [14](notebooks/14_jax_scaling.ipynb) | **JAX Scaling** | `jit`, `vmap`, `grad` — run 1000 agents in parallel. | Sub-linear batch scaling |
 
-### Part 5 — Capstone
+### Part 5 — Capstone: Social and Embodied Intelligence
 
-Multi-level models and multi-agent social intelligence.
+From hierarchical models to multi-agent commons to physical bodies.
 
 | | Module | What you'll learn | Application |
 |---|---|---|---|
 | [15](notebooks/15_hierarchical_aif.ipynb) | **Hierarchical AIF** | Context-dependent perception, temporal abstraction, cross-level info gain. | Context-dependent T-maze |
 | [16](notebooks/16_multiagent_commons.ipynb) | **Multi-Agent Commons** | Ostrom's design principles, FEP meets social simulation, experiment ladder L0-L7. | Concordia social simulation |
+| [17](notebooks/17_embodied_aif.ipynb) | **Embodied Active Inference** | Continuous-state AIF, proprioceptive inference, PD vs RL vs AIF control, perturbation robustness. | PyBullet 2-link arm reaching |
 
 ---
 
@@ -252,15 +253,19 @@ Central banks and governments also publish open-source models, though these are 
 
 **Why this matters for our curriculum:** The GABM wave — LLM agents replacing hand-coded behavioral rules — is exactly what Concordia enables. Our Module 16 shows how Active Inference provides principled decision-making (EFE decomposition into productivity vs. community learning) where pure RL agents would need ad-hoc reward shaping. The experiment ladder (L0 pure RL -> L7 LLM+AIF) demonstrates this progression. The Bank of Italy's [BeforeIT.jl](https://github.com/bancaditalia/BeforeIT.jl) shows that ABMs are being taken seriously by institutions — the question is whether AIF-grounded agents can do better than rule-based ones in these policy-relevant settings.
 
-### Where to go next: Embodied intelligence
+### Where to go next: From PyBullet to biologically realistic bodies
 
-Our curriculum ends at Module 16 with multi-agent social simulation — but the natural next step is **embodiment**: giving your Active Inference agents bodies in physically realistic worlds.
+Module 17 uses PyBullet for accessibility, but the frontier is **JAX-native physics**:
 
-**[Ludobots](https://github.com/jbongard/pyrosim)** (Josh Bongard, UVM) — The world's only MOOC taught from [reddit](https://www.reddit.com/r/ludobots/). Students evolve neural-network-controlled robots with arbitrary body plans in [pyrosim](https://github.com/mec-lab/pyrosim)/[pybullet](https://pybullet.org/). The progression — hill climber, neural networks, evolved morphologies — is the embodied cognition counterpart to our disembodied grid-world agents. Bongard's research on [xenobots](https://www.pnas.org/doi/10.1073/pnas.1910837117) (living robots designed by evolutionary algorithms) is where this line of work leads. Our Module 1 (animal behavior) and his evolutionary robotics share the same deep question: what is the relationship between an agent's body, its nervous system, and its behavior?
+**[MuJoCo XLA (MJX)](https://mujoco.readthedocs.io/en/stable/mjx.html)** — Google's JAX port of MuJoCo. Physics and neural networks in the same framework = no CPU-GPU transfer. `vmap` over hundreds of bodies simultaneously, millions of sim steps per second. The natural extension of our Module 14 (JAX scaling) to embodied agents.
 
-**[HBP Neurorobotics Platform](https://neurorobotics.net/)** (EU Human Brain Project / EBRAINS) — Connects spiking neural network simulators ([NEST](https://www.nest-simulator.org/)) to robot physics ([Gazebo](https://gazebosim.org/)) via a Closed-Loop Engine. Transfer Functions bridge brain simulation output to robot actuators and sensor data back to neural input. The NRP's [EPFL Neurorobotics MOOC](https://github.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics) teaches SARSA and self-organizing maps on embodied robots. Where our curriculum uses discrete POMDPs and tabular/JAX inference, the NRP uses continuous spiking networks and physics — but the question is the same: how does an agent's model of the world drive its actions?
+**[Virtual Rodent / MIMIC-MJX](https://github.com/google-deepmind/mujoco_playground)** (DeepMind) — A biomechanically accurate rat trained via RL in MJX. Locomotion, turning, obstacle avoidance — all on GPU. This is where Module 17's 2-link arm leads: biologically plausible morphology + differentiable physics + AIF control.
 
-**The connection:** Active Inference was always a theory of *embodied* intelligence — Friston's original formulations describe organisms minimizing free energy through both perception and action on a physical world. Our Modules 8-15 teach the math; Ludobots and the NRP provide the bodies. A future Module 17 could bridge the gap: an Active Inference agent controlling an evolved morphology in pybullet, closing the loop from Thorndike's cats to simulated creatures that learn, plan, and adapt.
+**[Ludobots](https://github.com/jbongard/pyrosim)** (Josh Bongard, UVM) — The world's only MOOC taught from [reddit](https://www.reddit.com/r/ludobots/). Students evolve neural-network-controlled robots with arbitrary body plans in [pyrosim](https://github.com/mec-lab/pyrosim) (ODE) and [pybullet](https://pybullet.org/). The evolutionary robotics counterpart to our AIF approach: where we optimize controllers, Bongard co-optimizes bodies and brains. His work on [xenobots](https://www.pnas.org/doi/10.1073/pnas.1910837117) (living robots) is where this leads.
+
+**[HBP Neurorobotics Platform](https://neurorobotics.net/)** (EBRAINS) — Connects spiking neural networks ([NEST](https://www.nest-simulator.org/)) to robot physics ([Gazebo](https://gazebosim.org/)) via a Closed-Loop Engine. The [EPFL Neurorobotics MOOC](https://github.com/HBPNeurorobotics/EPFLx-RoboX-Neurorobotics) teaches SARSA on embodied robots. Where our curriculum uses discrete POMDPs and JAX inference, the NRP uses continuous spiking networks — but the question is the same.
+
+**[RatInABox](https://github.com/TomGeorge1234/RatInABox)** — Lightweight spatial navigation simulator with community JAX wrappers. Bridges our neuro-nav grid worlds (Modules 1-7) to embodied hippocampal place/grid cell models.
 
 ## Key References
 

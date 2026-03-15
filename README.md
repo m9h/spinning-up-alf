@@ -193,6 +193,28 @@ This curriculum is designed to work alongside — not replace — other excellen
 | [Neuromatch NeuroAI](https://neuroai.neuromatch.io/) | Comparing biological and artificial networks, representations | After our full curriculum — our Rosetta Stone (Module 13) is NeuroAI applied to decision-making |
 | [Lovelace](https://computationalcognitivescience.github.io/lovelace/) | Computational cognitive science, probabilistic models of cognition | Alongside our Part 3 — same Bayesian brain ideas, different formalism |
 
+### Active Inference resources: where our Part 3 fits
+
+Our Modules 9-12 (the core AIF track) cover territory that no general course touches — but several specialized resources overlap with parts of it. Here is how they compare and where to use them:
+
+| Resource | What it covers | Module overlap | Use it for... |
+|---|---|---|---|
+| [Active Inference Institute](https://www.activeinference.institute) | Textbook groups, courses, livestreams, internship program. [Physics as Information Processing](https://www.activeinference.institute/courses) (Chris Fields), Active Inference for Social Sciences. | 8-12 (broad) | Theoretical depth, community, ongoing discussion groups |
+| [pymdp](https://github.com/infer-actively/pymdp) | Python AIF library. Excellent tutorials: [Active Inference from Scratch](https://pymdp-rtd.readthedocs.io/en/latest/notebooks/active_inference_from_scratch.html), T-maze demo, epistemic chaining. | 9-10 | Alternative Python implementation — compare with our JAX-native `alf` |
+| [CPC Zurich](https://www.translationalneuromodeling.org/cpcourse/) | Annual 5-day computational psychiatry course (ETH/UZH). Practical session on Active Inference using pymdp in Colab. | 9-10 | Clinical/psychiatric context for AIF. 3 ECTS credits. |
+| [Smith, Friston & Whyte tutorial](https://github.com/rssmith33/Active-Inference-Tutorial-Scripts) | Step-by-step MATLAB tutorial: A/B/C/D matrices, T-maze, planning, fitting to empirical data. [Paper](https://www.sciencedirect.com/science/article/pii/S0022249621000973). | 9-10 | The definitive reference — our Modules 9-10 follow this paper closely |
+| [Fundamentals of Active Inference](https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/) (Namjoshi, MIT Press 2026) | Engineering-focused textbook. Worked examples, simulations, no heavy proofs. AII textbook groups running now. | 8-12 | Accessible textbook companion for the full AIF track |
+| [Active Inference Tutor](https://www.learnactiveinference.org/) | Interactive browser-based tutorials: Bayesian updating, belief evolution, grid world EFE agent. | 8-10 | Visual intuition before diving into code |
+| [SPM/DEM toolbox](https://www.fil.ion.ucl.ac.uk/spm/doc/) | Friston's MATLAB toolbox. Continuous-time AIF, generalized filtering, POMDP inversion. [CPC 2018 tutorial](https://www.fil.ion.ucl.ac.uk/spm/doc/). | 8-11 | The original implementation — mathematically dense |
+| [RxInfer.jl](https://github.com/ReactiveBayes/RxInfer.jl) | Julia reactive message passing for Bayesian inference. Factor graph native. | 8, 11 | Alternative formalism: message passing on factor graphs. See also [Lovelace](https://computationalcognitivescience.github.io/lovelace/) |
+| [ActiveInference.jl](https://github.com/ilabcode/ActiveInference.jl) | Julia re-implementation of pymdp. T-maze, parameter estimation. [Paper](https://www.mdpi.com/1099-4300/27/1/62). | 9-10 | Julia ecosystem alternative |
+
+**What's unique about our Modules 9-12:**
+- **JAX-native and differentiable** — pymdp is NumPy; SPM is MATLAB; we use JAX with `jax.grad` through the entire inference pipeline
+- **Module 11 (Learning)** has no good educational equivalent — we differentiate through the forward algorithm to learn A/B matrices, which pymdp and SPM cannot do
+- **Module 12 (Deep AIF)** has essentially **no educational materials anywhere** — only research papers (Fountas et al. NeurIPS 2020, Millidge 2019). Our notebook is the first pedagogical treatment of neural network generative models for AIF
+- **Dual Perspective boxes** in every module — no other AIF resource systematically shows the RL correspondence
+
 ### Detailed correspondences with Neuromatch
 
 Our curriculum was designed as preparation for Neuromatch Academy. Here is where the specific modules align:
@@ -210,7 +232,7 @@ Our curriculum was designed as preparation for Neuromatch Academy. Here is where
 | 14 (JAX scaling) | -- | -- | -- |
 | 15-16 (Hierarchical, multi-agent) | -- | -- | W2D1-D2 (macrocircuits, neurosymbolic) |
 
-The cells marked **bold** are the strongest correspondences. Our Modules 9-12 (the core AIF track) have no Neuromatch equivalent — that is the gap we fill.
+The cells marked **bold** are the strongest correspondences. Our Modules 9-12 (the core AIF track) have no Neuromatch equivalent — that gap is filled by the [Active Inference Institute](https://www.activeinference.institute), [pymdp](https://github.com/infer-actively/pymdp), and [CPC Zurich](https://www.translationalneuromodeling.org/cpcourse/) (see AIF resources table above).
 
 ### Multi-agent ecosystems: from Gym to social simulation
 

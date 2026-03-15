@@ -178,6 +178,18 @@ python -m ipykernel install --user --name spinning-up-alf
 jupyter notebook
 ```
 
+## Companion resources
+
+This curriculum is designed to work alongside — not replace — other excellent courses:
+
+| Resource | What it's best for | Take it... |
+|---|---|---|
+| [INRIA scikit-learn MOOC](https://inria.github.io/scikit-learn-mooc/) | Classical ML pipelines, model selection, evaluation | Before or alongside — builds general ML fluency |
+| [HuggingFace Deep RL Course](https://huggingface.co/learn/deep-rl-course/) | Practical deep RL training (Atari, Unity, VizDoom) | After our Part 2 — you'll understand *why* the algorithms work |
+| [OpenAI Spinning Up](https://spinningup.openai.com/) | Reference implementations of PPO, SAC, TD3 | As a reference during our Modules 6-7 |
+| [Neuromatch Academy](https://compneuro.neuromatch.io/) | Full computational neuroscience (3 weeks, live) | After our Modules 1-8 — you'll arrive with deep RL/Bayesian intuition for W3 |
+| [Lovelace](https://computationalcognitivescience.github.io/lovelace/) | Computational cognitive science, probabilistic models of cognition | Alongside our Part 3 — same Bayesian brain ideas, different formalism |
+
 ## Key References
 
 - Sutton & Barto (2018). *Reinforcement Learning: An Introduction* — The RL bible
@@ -196,6 +208,16 @@ This curriculum builds on:
 - **[ALF](https://github.com/m9h/alf)** — Active inference/Learning Framework: JAX-native, differentiable, GPU-accelerated
 - **[neuro-nav](https://github.com/awjuliani/neuro-nav)** — Neuroscience-inspired RL environments and agents
 - **[Concordia](https://github.com/m9h/concordia)** — Multi-agent social simulation
+
+## Roadmap
+
+Pedagogical improvements planned, learning from the [scikit-learn MOOC](https://inria.github.io/scikit-learn-mooc/) design:
+
+- [ ] **Colab badges** — One-click execution for every notebook
+- [ ] **Glossary** — RL-AIF terminology Rosetta Stone (the jargon barrier is real)
+- [ ] **Wrap-up quizzes** — MCQ comprehension checks at module boundaries
+- [ ] **Separate exercise notebooks** — So students can't peek at solutions
+- [ ] **Module 0** — Pre-requisite refresher (probability, linear algebra, JAX basics)
 
 ## License
 

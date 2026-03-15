@@ -15,7 +15,7 @@ In 1898, Thorndike's cats learned to escape puzzle boxes by trial and error. In 
 
 This curriculum traces that intellectual lineage from animal behavior experiments through modern RL into Active Inference and the Free Energy Principle. You will implement every algorithm, see every correspondence, and understand why these two frameworks — seemingly so different — are solving the same problem.
 
-> Modeled on OpenAI's [Spinning Up in RL](https://spinningup.openai.com/) and [Neuromatch Academy](https://neuromatch.io/).
+> Modeled on OpenAI's [Spinning Up in RL](https://spinningup.openai.com/), and designed as a pre-course introduction to [Neuromatch Academy](https://neuromatch.io/)'s computational neuroscience curriculum.
 
 ## Who is this for?
 

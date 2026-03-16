@@ -315,6 +315,7 @@ This curriculum builds on:
 
 - **[ALF](https://github.com/m9h/alf)** — Active inference/Learning Framework: JAX-native, differentiable, GPU-accelerated
 - **[neuro-nav](https://github.com/awjuliani/neuro-nav)** — Neuroscience-inspired RL environments and agents
+- **[RatInABox](https://github.com/TomGeorge1234/RatInABox)** — Continuous-space locomotion and hippocampal neural activity ([eLife 2024](https://elifesciences.org/articles/85274)). Demos referenced in Modules 3 (successor features), 6 (actor-critic), 8 (generative model inversion), 17 (egocentric perception, path integration)
 - **[Concordia](https://github.com/m9h/concordia)** — Multi-agent social simulation
 
 ## Roadmap

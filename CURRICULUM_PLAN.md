@@ -127,13 +127,58 @@ This curriculum fills a gap: no existing resource teaches RL and AIF side-by-sid
 5. **Exercises** — 2-3 graded (guided → open-ended)
 6. **Further reading** — 3-5 annotated references
 
+### Appendix Notebooks (Supplementary Educational Materials)
+
+These appendix notebooks extend the core curriculum with modern cognitive neuroscience tasks and architectures. They are self-contained and can be used independently or as supplements to specific modules.
+
+**A0: Supplementary References** — Master index of all additional references: task libraries, modern frameworks (PsychRNN successors), new architectures for cognitive modeling, deep AIF advances, foundational neuroscience papers, and open research directions.
+
+**A1: NeuroGym Cognitive Tasks Survey** — Hands-on survey of the NeuroGym task library. Demonstrates GoNogo-v0, Bandit-v0, DawTwoStep-v0, PerceptualDecisionMaking-v0, DelayMatchSample-v0, and ContextDecisionMaking-v0. Maps each task to its curriculum module connection. (Supplements Modules 1, 4, 5, 7, 8)
+
+**A2: The Daw Two-Step Task** — Deep dive into the gold-standard paradigm for distinguishing model-based from model-free strategies. Implements model-free, model-based, and hybrid agents from scratch, plus the AIF perspective. Includes the classic reward × transition-type analysis. (Supplements Modules 5, 13)
+
+**A3: Modern Architectures for Cognitive Modeling** — Covers CTRNNs, CfCs, tiny interpretable RNNs, transformers as cognitive models, SSMs, DSA/Koopman analysis, and Continuous Thought Machines. All implementations in NumPy. (Supplements Modules 7, 12)
+
+**A4: Deep Active Inference on Cognitive Tasks** — Bridges Deep AIF (Module 12) with the standard cognitive neuroscience task battery. Builds AIF generative models for Go/No-Go, Perceptual Decision-Making, and Delay Match to Sample using the `alf` framework. (Supplements Modules 8, 9, 12)
+
 ### Build order (dependency):
 1. First pass: Modules 1-3, 8-9 (foundations)
 2. Second pass: Modules 4-7, 10-12 (depth)
 3. Third pass: Modules 13-16 (convergence + capstone)
+4. Appendix notebooks: A0-A4 (can be used at any point after the indicated modules)
 
 ### Verification:
 1. Each notebook runs end-to-end
 2. All imports resolve
 3. Existing tests still pass (212 tests)
 4. Narrative coherence across all 16 modules
+
+---
+
+## Supplementary References: Modern Architectures and Cognitive Tasks
+
+The following references and tools are integrated across the curriculum notebooks (Modules 1, 7, 8, 12, 13) to connect the RL↔AIF material with the latest advances in computational cognitive neuroscience.
+
+### Task Libraries
+- **[NeuroGym](https://github.com/neurogym/neurogym)** — 30+ Gymnasium-compatible neuroscience tasks (Go/No-Go, Bandit, DawTwoStep, PerceptualDecisionMaking, DelayMatchSample, etc.). Referenced in Modules 1, 7, 8, 12, 13.
+
+### Framework Successors to PsychRNN
+- **[PsychRNN](https://github.com/murraylab/PsychRNN)** (Murray Lab, eNeuro 2021) — Pioneered "train RNNs on cognitive tasks" but is now dead (TF 1.x). Discussed in Module 7 as a cautionary tale.
+- **[NN4N](https://github.com/nn4neurosim/nn4n)** (NeurIPS 2024) — Multi-area CTRNNs, EIRNN, PyTorch.
+- **[MotorNet](https://github.com/OlivierCod662/MotorNet)** (eLife 2024) — Differentiable biomechanical effectors, PyTorch.
+- **[Disentangled RNNs](https://arxiv.org/abs/2305.16865)** (DeepMind, NeurIPS 2023) — Interpretable RNNs, JAX/Haiku.
+- **[Jaxley](https://github.com/jaxleyverse/jaxley)** (Nature Methods 2025) — Differentiable biophysical neuron models, JAX.
+- **[SOFO](https://arxiv.org/abs/2402.11867)** (NeurIPS 2024) — Second-order optimization without BPTT, JAX+PyTorch.
+
+### New Architectures for Cognitive Modeling
+- **BrainMamba / NeuroMamba** — S4/Mamba for neural decoding (CHIL 2024, NeurIPS 2025).
+- **CfCs** (Hasani et al., Nature Machine Intelligence 2022) — Continuous-time networks, 100x faster than neural ODEs.
+- **Tiny RNNs** (Ji-An et al., Nature 2025) — 1–4 unit RNNs outperform 30+ classical cognitive models.
+- **Transformers as cognitive models** (Whittington et al., arXiv 2024) — Spontaneous frontostriatal-like gating.
+- **Continuous Thought Machines** (Sakana AI, May 2025) — Neural synchrony-based representations.
+- **Symbolic mechanisms in LLMs** (Yang et al., ICML 2025) — Emergent symbolic computation.
+- **DSA / Koopman analysis** (Ostrow et al., NeurIPS 2023) — Dynamics-level comparison of trained networks.
+
+### Deep Active Inference Advances
+- **DR-FREE** (Nature Communications 2025) — Distributionally robust free energy minimization.
+- **Dale's Backpropagation** (Balwani et al., Science Advances 2025) — Biologically constrained training with convergence guarantees.

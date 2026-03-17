@@ -24,3 +24,8 @@ jaxlib>=0.4.20
 # Concordia (Module 16 capstone only)
 # pip install concordia
 # Or install from source: cd /path/to/concordia && pip install -e .
+
+# NeuroGym (Appendix notebooks A1-A4 — cognitive neuroscience tasks)
+# pip install neurogym
+# Or: pip install neurogym[rl]  (includes Stable-Baselines3 + PyTorch)
+# GitHub: https://github.com/neurogym/neurogym

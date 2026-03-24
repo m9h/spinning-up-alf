@@ -18,7 +18,7 @@ This curriculum fills a gap: no existing resource teaches RL and AIF side-by-sid
 - `hierarchical.py` — Multi-level temporal hierarchy (Phase 4)
 - `benchmarks/t_maze.py` — 8-state T-maze
 - `benchmarks/neuronav_wrappers.py` — neuro-nav grid/graph env integration
-- `benchmarks/pymdp_comparison.py` — pymdp vs PGMax head-to-head
+- *(planned)* pymdp interop — ALF as cognitive extensions on pymdp v1.0.0 (JAX-first) core
 - 212 tests across all modules
 
 **neuro-nav** (external dependency):

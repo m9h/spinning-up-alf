@@ -6,7 +6,7 @@
   <img src="https://img.shields.io/badge/modules-17-blue" alt="17 modules"/>
   <img src="https://img.shields.io/badge/JAX-GPU_accelerated-green" alt="JAX GPU"/>
   <img src="https://img.shields.io/badge/license-Apache_2.0-orange" alt="License"/>
-  <img src="https://img.shields.io/badge/tests-17%2F17_passing-brightgreen" alt="Tests passing"/>
+  <img src="https://github.com/m9h/spinning-up-alf/actions/workflows/notebooks.yml/badge.svg" alt="Notebook CI"/>
 </p>
 
 ---
@@ -19,14 +19,14 @@ This curriculum traces that intellectual lineage from animal behavior experiment
 
 ## How this fits with other resources
 
-There are excellent RL courses already. This one exists because none of them do what we do.
+This curriculum combines an RL track with active inference experiments in shared environments.
 
 | | [Spinning Up (OpenAI)](https://spinningup.openai.com/) | [Deep RL Course (HuggingFace)](https://huggingface.co/learn/deep-rl-course/) | [Neuromatch Academy](https://compneuro.neuromatch.io/) | **This curriculum** |
 |---|---|---|---|---|
 | **RL algorithms** | VPG, TRPO, PPO, DDPG, TD3, SAC | Q-learning, DQN, PPO, A2C | Multi-armed bandits, Q-learning, model-based (1 day) | Q-learning, SARSA, Dyna, REINFORCE, A2C, DQN, PPO, SAC |
 | **Active Inference** | -- | -- | -- | Full AIF track: POMDP generative models, EFE, deep AIF, hierarchical |
 | **Free Energy Principle** | -- | -- | -- | VFE, ELBO decomposition, surprise minimization, FEP as unifying principle |
-| **RL-AIF bridge** | -- | -- | -- | Formal Rosetta Stone: Q = -G, softmax equivalence, same-environment proof |
+| **RL-AIF bridge** | -- | -- | -- | Conditional RL/AIF correspondences with explicit utility and information terms |
 | **Neuroscience grounding** | -- | -- | Bayesian decisions, HMMs, Kalman filters | Thorndike, Pavlov, Tolman, Schultz (dopamine = TD error), successor representations |
 | **Animal behavior history** | -- | -- | Implicit | Explicit: ethology, reinforcement schedules, cognitive maps, Tinbergen's 4 questions |
 | **Bayesian brain** | -- | -- | W3D1-D2 (inference, HMMs) | Helmholtz, variational inference, generative models, belief propagation |
@@ -145,42 +145,71 @@ The central result of the curriculum:
 
 ## Installation
 
+Python 3.12 and [uv](https://docs.astral.sh/uv/) are recommended. The default
+installation runs on CPU, including Apple Silicon. The lockfile pins ALF and
+neuro-nav to source commits, so neither needs a separate sibling checkout.
+
 ```bash
-# Clone
 git clone https://github.com/m9h/spinning-up-alf.git
 cd spinning-up-alf
-
-# Create environment (requires uv: https://docs.astral.sh/uv/)
-uv venv .venv --python 3.12
-source .venv/bin/activate
-
-# Core dependencies
-uv pip install numpy matplotlib seaborn jupyter ipywidgets scikit-learn
-
-# JAX with GPU support (use jax[cpu] if no CUDA)
-uv pip install jax[cuda12]
-
-# RL environments and agents
-git clone https://github.com/awjuliani/neuro-nav.git ../neuro-nav
-uv pip install -e ../neuro-nav
-
-# Active Inference library
-git clone https://github.com/m9h/alf.git ../alf
-uv pip install -e ../alf
-
-# Optional: PGMax (factor graphs)
-git clone https://github.com/m9h/PGMax.git ../PGMax
-uv pip install -e ../PGMax
-
-# Optional: Concordia (Module 16 capstone only)
-git clone https://github.com/m9h/concordia.git ../concordia
-
-# Install Jupyter kernel
-python -m ipykernel install --user --name spinning-up-alf
-
-# Launch
-jupyter notebook
+uv sync --locked
+uv run --no-sync jupyter lab
 ```
+
+Select the environment's Python 3 kernel. For a pip environment, install the
+exported `requirements.txt`; regenerate it after changing the lockfile with
+`uv export --locked --no-dev --no-hashes --no-emit-project -o requirements.txt`.
+Use Python 3.12 or 3.13 for that export, matching `pyproject.toml`.
+
+Optional lessons:
+
+```bash
+# NeuroGym appendices A1–A2
+uv sync --locked --extra cognitive
+
+# PyBullet robotics (Module 17; may require a compiler on Apple Silicon)
+uv sync --locked --extra robotics
+
+# Combine extras to retain both sets of dependencies
+uv sync --locked --extra cognitive --extra robotics
+
+# Module 16 needs this fork and branch, including its examples directory
+git clone --branch sustainhub-autoresearch https://github.com/m9h/concordia.git ../concordia
+```
+
+Module 16 uses the sibling `concordia` checkout by default. Set `CONCORDIA_PATH`
+when it lives elsewhere. It requires the SustainHub modules from that branch;
+the unrelated PyPI package named `concordia` is not a substitute.
+
+For NVIDIA GPUs, follow the [JAX installation guide](https://docs.jax.dev/en/latest/installation.html)
+and install the matching `jax[cuda12]` or `jax[cuda13]` extra into a separate GPU
+environment. macOS uses the default CPU installation. PGMax is not imported by
+these notebooks and is not required for the current ALF lessons.
+
+To work on a sibling ALF checkout, install it into the curriculum environment
+with `uv pip install -e '../alf[learning]'`, then use `uv run --no-sync` so that
+uv does not replace the editable checkout with the locked source commit.
+
+## Validation and current limitations
+
+```bash
+# Validate all 22 notebook files
+uv run --no-sync python scripts/check_notebooks.py
+
+# Execute one lesson without changing its committed outputs
+MPLBACKEND=Agg uv run --no-sync python scripts/check_notebooks.py --execute notebooks/09_first_aif_agent.ipynb
+```
+
+Executed notebooks and machine-readable results go to `notebook-results/`.
+The runner uses the environment's kernel and runs each notebook from its own
+directory. CI validates all notebooks and executes the core AIF lessons.
+
+See the [November 2026 review and symposium plan](docs/2026-symposium.md) for
+verified execution results, remaining scientific issues, program links, and
+recommended sessions. The corrected ALF scoring uses expected state information gain;
+the RL/AIF equivalence tables are teaching sketches, not a general equivalence
+proof. Matched preferences, horizons, policy priors, observability and the
+information-gain term must be specified before comparing policies.
 
 ## Companion resources
 
@@ -203,7 +232,7 @@ Our Modules 9-12 (the core AIF track) cover territory that no general course tou
 | Resource | What it covers | Module overlap | Use it for... |
 |---|---|---|---|
 | [Active Inference Institute](https://www.activeinference.institute) | Textbook groups, courses, livestreams, internship program. [Physics as Information Processing](https://www.activeinference.institute/courses) (Chris Fields), Active Inference for Social Sciences. | 8-12 (broad) | Theoretical depth, community, ongoing discussion groups |
-| [pymdp](https://github.com/infer-actively/pymdp) | Python AIF library (JAX-first as of v1.0.0). Equinox Agent, rollout() API, MCTS, pybefit model fitting. Excellent tutorials: T-maze, epistemic chaining, cue chaining. | 9-11 | The community standard for AIF in Python. ALF builds cognitive extensions (HGF, DDM, metacognition) on top of pymdp's core. |
+| [pymdp](https://github.com/infer-actively/pymdp) | Python AIF library (JAX-first as of v1.0.0). Equinox Agent, rollout() API, MCTS, pybefit model fitting. Excellent tutorials: T-maze, epistemic chaining, cue chaining. | 9-11 | The community standard for AIF in Python. ALF has its own inference core and optional pymdp adapters, alongside HGF, DDM and metacognition modules. |
 | [CPC Zurich](https://www.translationalneuromodeling.org/cpcourse/) | Annual 5-day computational psychiatry course (ETH/UZH). Practical session on Active Inference using pymdp in Colab. | 9-10 | Clinical/psychiatric context for AIF. 3 ECTS credits. |
 | [Smith, Friston & Whyte tutorial](https://github.com/rssmith33/Active-Inference-Tutorial-Scripts) | Step-by-step MATLAB tutorial: A/B/C/D matrices, T-maze, planning, fitting to empirical data. [Paper](https://www.sciencedirect.com/science/article/pii/S0022249621000973). | 9-10 | The definitive reference — our Modules 9-10 follow this paper closely |
 | [Fundamentals of Active Inference](https://mitpress.mit.edu/9780262050951/fundamentals-of-active-inference/) (Namjoshi, MIT Press 2026) | Engineering-focused textbook. Worked examples, simulations, no heavy proofs. AII textbook groups running now. | 8-12 | Accessible textbook companion for the full AIF track |
@@ -216,11 +245,11 @@ Our Modules 9-12 (the core AIF track) cover territory that no general course tou
 | [AII Courses](https://github.com/ActiveInferenceInstitute/courses) | 14 courses spanning K-PhD, 464+ modules. 4-unit core: Philosophy, Cognitive Science, Mathematics, Computer Science — each with 8 topics (Systems, Agents, Perception, Cognition, Action, Learning, Communication, Planning). [Parr et al. textbook group](https://github.com/ActiveInferenceInstitute/Parr_et_al_2022_ActInf_Textbook). | 8-12 (broad) | The most comprehensive AIF curriculum. Complements our hands-on approach with philosophical and cognitive science grounding |
 
 **What's unique about our Modules 9-12:**
-- **RL↔AIF correspondence throughout** — pymdp (now also JAX-first as of v1.0.0) and other resources teach AIF standalone. We are the only resource that systematically shows the **RL correspondence** via Dual Perspective boxes in every section, grounded in the same neuroscience-native environments
+- **RL↔AIF correspondence throughout** — pymdp (now also JAX-first as of v1.0.0) and other resources teach AIF standalone. We use Dual Perspective boxes to explore the **RL correspondence** in shared neuroscience-inspired environments
 - **Module 9-10** have good alternatives (pymdp, CPC Zurich, Smith et al., RxInfer EFE example) but none present the RL↔AIF bridge as a central organizing principle
 - **Module 11 (Learning)** — ALF teaches differentiable learning via a lightweight `jax.grad` through the forward algorithm. pymdp v1.0.0 now also supports JAX-native learning via pybefit + NumPyro. Our pedagogical approach (explicit forward-filter NLL, no external deps) remains clearer for teaching
-- **Module 12 (Deep AIF)** has essentially **no educational materials anywhere** — only research papers (Fountas et al. NeurIPS 2020, Millidge 2019). Our notebook is the first pedagogical treatment of neural network generative models for AIF with explicit encoder collapse analysis
-- **Cognitive extensions** — ALF provides HGF, DDM, metacognition, hierarchical AIF, and normative modeling modules that no other AIF library offers. These are used in Modules 15-16 and the appendices
+- **Module 12 (Deep AIF)** teaches neural network generative models and encoder collapse, with research context from Fountas et al. (2020) and Millidge (2019)
+- **Cognitive extensions** — ALF provides HGF, DDM, metacognition, hierarchical AIF, and normative modeling modules within one teaching framework. These are used in Modules 15-16 and the appendices
 - The **AII Courses** (14 courses, 464+ modules) are the broadest AIF curriculum but focus on conceptual/philosophical grounding; we focus on **runnable code + RL bridge**
 
 ### Detailed correspondences with Neuromatch

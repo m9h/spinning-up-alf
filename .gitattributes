@@ -1,0 +1,2 @@
+# iCalendar uses CRLF on disk; normalize line endings in Git.
+*.ics text eol=crlf

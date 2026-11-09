@@ -1,0 +1,167 @@
+{
+  "review_date": "2026-11-09",
+  "platform": "macOS ARM64 CPU",
+  "python": "3.12.13",
+  "jax": "0.12.0.1",
+  "neurogym": "2.3.1",
+  "schema_validation_passed": 22,
+  "executed_passed": 21,
+  "results": [
+    {
+      "notebook": "01_behaving_animal.ipynb",
+      "status": "passed",
+      "seconds": 24.04,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "02_bellman_and_value.ipynb",
+      "status": "passed",
+      "seconds": 2.83,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "03_td_learning.ipynb",
+      "status": "passed",
+      "seconds": 7.98,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "04_exploration_exploitation.ipynb",
+      "status": "passed",
+      "seconds": 20.33,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "05_model_based_rl.ipynb",
+      "status": "passed",
+      "seconds": 17.13,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "06_policy_gradients.ipynb",
+      "status": "passed",
+      "seconds": 6.69,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "07_deep_rl.ipynb",
+      "status": "passed",
+      "seconds": 12.06,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "08_generative_models_fep.ipynb",
+      "status": "passed",
+      "seconds": 1.09,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "09_first_aif_agent.ipynb",
+      "status": "passed",
+      "seconds": 1.02,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "10_efe_decomposition.ipynb",
+      "status": "passed",
+      "seconds": 0.99,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "11_learning_generative_models.ipynb",
+      "status": "passed",
+      "seconds": 7.52,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "12_deep_aif.ipynb",
+      "status": "passed",
+      "seconds": 6.15,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "13_rosetta_stone.ipynb",
+      "status": "passed",
+      "seconds": 16.26,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "14_jax_scaling.ipynb",
+      "status": "passed",
+      "seconds": 32.47,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "15_hierarchical_aif.ipynb",
+      "status": "passed",
+      "seconds": 1.21,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "16_multiagent_commons.ipynb",
+      "status": "passed",
+      "seconds": 1.68,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "17_embodied_aif.ipynb",
+      "status": "not_executed",
+      "reason": "PyBullet 3.2.7 failed to compile on macOS ARM64; schema validation passed.",
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "A0_supplementary_references.ipynb",
+      "status": "passed",
+      "seconds": 0.49,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "A1_neurogym_cognitive_tasks.ipynb",
+      "status": "passed",
+      "seconds": 2.21,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "A2_daw_two_step.ipynb",
+      "status": "passed",
+      "seconds": 3.11,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    },
+    {
+      "notebook": "A3_modern_architectures_cognitive.ipynb",
+      "status": "passed",
+      "seconds": 3.08,
+      "alf_revision": "e1af0110d3b9dd32f55477fac1f7ce632b9b724e",
+      "validation_date": "2026-11-08"
+    },
+    {
+      "notebook": "A4_deep_aif_cognitive_tasks.ipynb",
+      "status": "passed",
+      "seconds": 1.84,
+      "alf_revision": "c1c886b870acc2300aa22760aabaf2f8505d2d99",
+      "validation_date": "2026-11-09"
+    }
+  ],
+  "corrected_alf_reexecuted_passed": 11,
+  "science_regressions_passed": 2
+}

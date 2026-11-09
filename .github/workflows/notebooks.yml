@@ -1,0 +1,37 @@
+name: Notebooks
+
+on:
+  push:
+  pull_request:
+
+env:
+  MPLBACKEND: Agg
+
+jobs:
+  notebooks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7.0.1
+      - uses: astral-sh/setup-uv@v10.3.3
+      - run: uv sync --locked
+      - name: Check numerical lesson regressions
+        run: uv run --no-sync python -m unittest discover -s tests
+      - name: Validate every notebook
+        run: uv run --no-sync python scripts/check_notebooks.py
+      - name: Execute core active inference lessons
+        run: >-
+          uv run --no-sync python scripts/check_notebooks.py --execute
+          notebooks/08_generative_models_fep.ipynb
+          notebooks/09_first_aif_agent.ipynb
+          notebooks/10_efe_decomposition.ipynb
+          notebooks/11_learning_generative_models.ipynb
+          notebooks/12_deep_aif.ipynb
+          notebooks/13_rosetta_stone.ipynb
+          notebooks/14_jax_scaling.ipynb
+          notebooks/15_hierarchical_aif.ipynb
+      - uses: actions/upload-artifact@v7.0.2
+        if: always()
+        with:
+          name: notebook-results
+          path: notebook-results/

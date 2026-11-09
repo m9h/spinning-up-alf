@@ -169,12 +169,12 @@ def plot_efe_decomposition(
            color=COLORS["epistemic"], alpha=0.85)
 
     # Total EFE line
-    total = pragmatic + epistemic
-    ax.plot(x, total, "ko-", label="Total G(a)", linewidth=2, markersize=8)
+    total = -pragmatic - epistemic
+    ax.plot(x, total, "ko-", label="G(a) = -pragmatic - epistemic (lower is better)", linewidth=2, markersize=8)
 
     ax.set_xticks(x)
     ax.set_xticklabels(action_names, rotation=30, ha="right")
-    ax.set_ylabel("Free Energy (nats)")
+    ax.set_ylabel("Value / expected free energy (nats)")
     ax.set_title(title)
     ax.legend()
     return ax
